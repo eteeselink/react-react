@@ -4,7 +4,9 @@ var Slide = React.createClass({
     render() {
         return <div className="Slide">
             {this.props.title && <h1>{this.props.title}</h1>}
-            {this.props.children}
+            <div className="body">
+                {this.props.children}
+            </div>
         </div>;
     }
 });

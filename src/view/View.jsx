@@ -9,30 +9,33 @@ var View = React.createClass({
         };
     },
 
-    componentWillMount() {
-        document.onkeydown = (evt) => {
-            if(evt.keyCode===32) {
-                this.next();
-            }
-        };
-    },
-
     move(where) {
-        this.setState({slide: this.state.slide + where});
+        this.props.goSlide(this.state.slide + where);
     },
 
     next() {
         this.move(1);
     },
 
-    render() {
-        var slides = [
-            <Slide title="Hello"/>,
-            <Slide title="Hello2"/>,
-        ];
+    slides: [
+        () => 
+            <Slide title="Hello">
+                <p>Hi</p>
+                <ul>
+                    <li>Dingen</li>
+                    <li>Dongen</li>
+                    <li>Dangen</li>
+                </ul>
+            </Slide>,
+        () => <Slide title="Hello2"/>,
+        () => <Slide title="Hello3"/>,
+    ],
 
+
+    render() {
+        var slide = this.slides[this.state.slide];
         return <div onClick={this.next} className="View">
-            {slides[this.state.slide]}
+            {slide && slide()}
         </div>;
     }
 });
