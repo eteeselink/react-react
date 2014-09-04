@@ -1,0 +1,17 @@
+# libraries can be `npm install`ed. would like to include them but
+# npm's subsubsubsubdir approach doesn't mesh well with Windows's 
+# ridiculous MAX_PATH. 
+node_modules
+
+# random output
+/frontend/build/*
+
+# we use TypeScript wherever we don't use JSX, so gitignore all .js files - 
+# raw .js should be either generated or in node_modules!
+/src/**/*.js
+/src/**/*.js.map
+
+# WebStorm
+.idea
+
+*.sublime-workspace
