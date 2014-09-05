@@ -2,7 +2,7 @@ require("./Slide.styl");
 
 var Slide = React.createClass({
     render() {
-        return <div className="Slide">
+        return <div className={"Slide " + this.props.pos}>
             {this.props.title && <h1>{this.props.title}</h1>}
             <div className="body">
                 {this.props.children}

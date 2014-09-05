@@ -19,7 +19,7 @@ var View = React.createClass({
 
     slides: [
         () => 
-            <Slide title="Hello">
+            <Slide pos="left" title="Hello">
                 <p>Hi</p>
                 <ul>
                     <li>Dingen</li>
@@ -27,15 +27,20 @@ var View = React.createClass({
                     <li>Dangen</li>
                 </ul>
             </Slide>,
-        () => <Slide title="Hello2"/>,
-        () => <Slide title="Hello3"/>,
+        () => <Slide pos="mid" title="Hello2"/>,
+        () => <Slide pos="right" title="Hello3"/>,
     ],
 
 
     render() {
         var slide = this.slides[this.state.slide];
-        return <div onClick={this.next} className="View">
-            {slide && slide()}
+        return <div className="View">
+            <div className="Cube">
+                {/*slide && slide()*/}
+                {this.slides[2]()}
+                {this.slides[1]()}
+                {this.slides[0]()}
+            </div>
         </div>;
     }
 });
