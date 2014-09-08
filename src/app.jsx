@@ -13,11 +13,12 @@ function getSlideId() {
 }
 
 function go(slideId) {
-    if(slideId > 0 && slideId < view.slides.length) {
+    if(slideId >= 0 && slideId < view.slides.length) {
         location.assign("#" + slideId);
     }
 }
 
+React.initializeTouchEvents(true);
 view = React.renderComponent(<View goSlide={go} getSlideId={getSlideId}/>,
   document.getElementById('hello')
 );

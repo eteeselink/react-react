@@ -1,34 +1,41 @@
 @import 'nib'
 
-$boxSize = 85vmin
+$boxSize = 800px //85vmin
 $halfBoxSize = $boxSize * 0.5
 
-@keyframes spin {
-    from { transform: translateZ(- $halfBoxSize) rotateY(0)}
-    to { transform: translateZ(- $halfBoxSize) rotateY(-360deg)}
-}
 .Cube
-    transform-style: preserve-3d;
-    position: relative;
-    animation spin 5s linear infinite
+    position relative
+    width $boxSize
+    height 100%
+    margin 0 auto
 
 
 .Slide
     width $boxSize
     height $boxSize
+    transition: all 2s;
+    transform-origin 50% 50%
 
     position absolute;
-    left (100vmin - $boxSize) * 0.5
 
     &.left
-        transform rotateY( -90deg ) translateZ($halfBoxSize)
+        transform perspective(500px) rotateY( -90deg ) translateZ($halfBoxSize)
 
+    &.mid-90
+        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  90deg )  translateZ($halfBoxSize)
+        opacity 0
     &.mid
-        transform translateZ($halfBoxSize)
+        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  0deg )  translateZ($halfBoxSize)
+    &.mid90
+        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  -90deg )  translateZ($halfBoxSize)
+        opacity 0
 
     &.right
-        transform rotateY(  90deg ) translateZ($halfBoxSize)
-        //transform-origin right center
+        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  90deg ) translateZ($halfBoxSize)
+        opacity 0
+    &.right90
+        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  0deg ) translateZ($halfBoxSize)
+        opacity 100%
 
 
     h1

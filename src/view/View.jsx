@@ -5,7 +5,8 @@ var Slide = require("Slide.jsx");
 var View = React.createClass({
     getInitialState() {
         return {
-            slide: 0
+            slide: 0,
+            moving: 0
         };
     },
 
@@ -17,9 +18,14 @@ var View = React.createClass({
         this.move(1);
     },
 
+    touch(evt) {
+        var pos = evt.changedTouches[0].screenX;
+        this.move(pos > (window.screen.availWidth/2) ? 1 : -1);
+    },
+
     slides: [
-        () => 
-            <Slide pos="left" title="Hello">
+        (pos) => 
+            <Slide pos={pos} title="Hello">
                 <p>Hi</p>
                 <ul>
                     <li>Dingen</li>
@@ -27,19 +33,26 @@ var View = React.createClass({
                     <li>Dangen</li>
                 </ul>
             </Slide>,
-        () => <Slide pos="mid" title="Hello2"/>,
-        () => <Slide pos="right" title="Hello3"/>,
+        (pos) => <Slide pos={pos} title="Hello2">
+                    <ul>
+                        <li>Dingen</li>
+                        <li>Dongen</li>
+                        <li>Dangen</li>
+                    </ul>
+                </Slide>,
+        (pos) => <Slide pos={pos} title="Hello3"/>,
     ],
 
 
     render() {
-        var slide = this.slides[this.state.slide];
-        return <div className="View">
-            <div className="Cube">
-                {/*slide && slide()*/}
-                {this.slides[2]()}
-                {this.slides[1]()}
-                {this.slides[0]()}
+        var slideId = this.state.slide;
+
+        var rot90 = (slideId) ? "90" : "";
+        return <div className="View" onTouchEnd={this.touch}>
+            <div className={"Cube"}>
+                {/*this.slides[0]("left")*/}
+                {this.slides[1]("mid" + rot90)}
+                {this.slides[2]("right" + rot90)}
             </div>
         </div>;
     }
