@@ -8,18 +8,8 @@ require("./typography.styl");
 var View = require("./view/View");
 var view;
 
-function getSlideId() {
-    return parseInt(location.hash.substr(1));
-}
-
-function go(slideId) {
-    if(slideId >= 0 && slideId < view.slides.length) {
-        location.assign("#" + slideId);
-    }
-}
-
 React.initializeTouchEvents(true);
-view = React.renderComponent(<View goSlide={go} getSlideId={getSlideId}/>,
+view = React.renderComponent(<View/>,
   document.getElementById('hello')
 );
 
@@ -29,20 +19,3 @@ window.onkeydown = (evt) => {
         return false;
     }
 };
-
-function checkHash() {
-    var slide = getSlideId();
-    if(isNaN(slide) || (slide < 0)) { // if negative or NaN
-        location.assign("#0");
-        return;
-    }
-    if(slide >= view.slides.length) {
-        location.assign("#" + (view.slides.length - 1));
-        return;
-    }
-
-    view.setState({slide: slide});
-}
-
-window.onhashchange = checkHash;
-setTimeout(checkHash, 0);

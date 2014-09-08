@@ -13,29 +13,39 @@ $halfBoxSize = $boxSize * 0.5
 .Slide
     width $boxSize
     height $boxSize
-    transition: all 2s;
+    &.moving
+        transition: all 2s;
+
     transform-origin 50% 50%
 
     position absolute;
 
     &.left
-        transform perspective(500px) rotateY( -90deg ) translateZ($halfBoxSize)
+    &.mid90
+        transform perspective(700px) translateZ(- $halfBoxSize) rotateY( -90deg ) translateZ($halfBoxSize)
+
+    &.left-90
+    &.mid
+    &.right90
+        transform perspective(700px) translateZ(- $halfBoxSize) rotateY( 0deg ) translateZ($halfBoxSize)
 
     &.mid-90
-        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  90deg )  translateZ($halfBoxSize)
-        opacity 0
+    &.right
+        transform perspective(700px) translateZ(- $halfBoxSize) rotateY(  90deg ) translateZ($halfBoxSize)
+
+    &.left-90
     &.mid
-        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  0deg )  translateZ($halfBoxSize)
+    &.right90
+        opacity 100%
+
+    &.right-90
+    &.right
+    &.left
+    &.left90
+    &.mid-90
     &.mid90
-        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  -90deg )  translateZ($halfBoxSize)
         opacity 0
 
-    &.right
-        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  90deg ) translateZ($halfBoxSize)
-        opacity 0
-    &.right90
-        transform perspective(500px) translateZ(- $halfBoxSize) rotateY(  0deg ) translateZ($halfBoxSize)
-        opacity 100%
 
 
     h1
