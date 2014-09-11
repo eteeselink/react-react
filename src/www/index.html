@@ -19,17 +19,22 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<style>
-		.slides section {
-			min-height: 90vh !important;
-		}
-		.slides section h2 {
-			margin-bottom: 8vh !important;
-		}
-		</style>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<script>
+		//console.log(document.all);
+		var isIE = false;
+		if("ActiveXObject" in window) {
+			isIE = true;
+		 	document.write(
+		 		"<style>"+
+		 		".reveal section, .review section>section { font-size: 3em !important; }"+
+		 		".reveal .controls { transform: scale(1.5) translate(-8px, 19px); }" +
+		 		".navigate-up, .navigate-down { display: none; }" +
+		 		"</style>");
+		}
+		</script>
 	</head>
 
 	<body>
@@ -63,6 +68,7 @@
 								<li>PhoneGap / Apache Cordova</li>
 							</small></ul>
 						</li>
+					</ol>
 				</section>
 
 				<section id="crowd-o-section">
