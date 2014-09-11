@@ -9,10 +9,10 @@ var globalRequires = {
 
 module.exports = {
   cache: true,
-  entry: './src/app.jsx',
+  entry: './src/app/app.jsx',
 
   output: {
-    filename: "app-bundle.js",
+    filename: "app/app-bundle.js",
     path: __dirname + "/src"
   },
 
@@ -20,7 +20,7 @@ module.exports = {
     loaders: [
       { test: /\.jsx$/, loader: strict_loader + "!jshint-loader!jsx-loader?harmony&insertPragma=React.DOM"},
       { test: /\.css$/, loader:  "style-loader!css-loader"},
-      { test: /\.styl$/, loader: "style-loader!css-loader!stylus-loader?import=" + __dirname + "/src/lib.styl"}
+      { test: /\.styl$/, loader: "style-loader!css-loader!stylus-loader?import=" + __dirname + "/src/app/lib.styl"}
     ],
   },
 
@@ -45,8 +45,8 @@ module.exports = {
     // allow require('file') instead of require('file.jsx')
     extensions: ['', '.js', '.jsx', '.json'] ,
     root: [
-      __dirname + "/src",
-      __dirname + "/src/view"    // add view to root for shorter require()s across JSX components
+      __dirname + "/src/app",
+      __dirname + "/src/app/view"    // add view to root for shorter require()s across JSX components
     ]
   },
 
@@ -55,12 +55,12 @@ module.exports = {
     use: [
       require('jeet')(),
       require('nib')(),
-      require('rupture')()
+//      ,require('rupture')()
     ]
   },
 
   jshint: {
-    camelcase: true,   // force camelCase variable naming
+    camelcase: false,   // force camelCase variable naming
     eqeqeq: true,      // disallow == and !=; only === and !===
     indent: 4,         // 4 spaces per indent, always
     latedef: "nofunc", // don't refer to late defined variables (except functions)
