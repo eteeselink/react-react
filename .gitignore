@@ -3,17 +3,10 @@
 # ridiculous MAX_PATH. 
 node_modules
 
-# random output
-/frontend/build/*
-
-# we use TypeScript wherever we don't use JSX, so gitignore all .js files - 
-# raw .js should be either generated or in node_modules!
-/src/**/*.js
-/src/**/*.js.map
 
 # WebStorm
 .idea
 
 *.sublime-workspace
 
-/src/mobile
+/src/platforms

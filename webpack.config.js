@@ -9,18 +9,18 @@ var globalRequires = {
 
 module.exports = {
   cache: true,
-  entry: './src/app/app.jsx',
+  entry: './src/www/app/app.jsx',
 
   output: {
     filename: "app/app-bundle.js",
-    path: __dirname + "/src"
+    path: __dirname + "/src/www"
   },
 
   module: {
     loaders: [
       { test: /\.jsx$/, loader: strict_loader + "!jshint-loader!jsx-loader?harmony&insertPragma=React.DOM"},
       { test: /\.css$/, loader:  "style-loader!css-loader"},
-      { test: /\.styl$/, loader: "style-loader!css-loader!stylus-loader?import=" + __dirname + "/src/app/lib.styl"}
+      { test: /\.styl$/, loader: "style-loader!css-loader!stylus-loader?import=" + __dirname + "/src/www/app/lib.styl"}
     ],
   },
 
@@ -45,8 +45,8 @@ module.exports = {
     // allow require('file') instead of require('file.jsx')
     extensions: ['', '.js', '.jsx', '.json'] ,
     root: [
-      __dirname + "/src/app",
-      __dirname + "/src/app/view"    // add view to root for shorter require()s across JSX components
+      __dirname + "/src/www/app",
+      __dirname + "/src/www/app/view"    // add view to root for shorter require()s across JSX components
     ]
   },
 
