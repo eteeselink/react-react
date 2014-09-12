@@ -1,0 +1,6 @@
+[ ] @imports comment weg uit simple.css
+[ ] checken of internet goed werkt
+[ ] sublime font groter
+[ ] console window open met groot font
+[ ] cordova build + run testen
+[ ] ms paint open met leeg canvas

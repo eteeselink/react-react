@@ -17,11 +17,8 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
 		<script>
-		//console.log(document.all);
+		// hack to make font bigger on IE (= my cell phone)
 		var isIE = false;
 		if("ActiveXObject" in window) {
 			isIE = true;
@@ -71,7 +68,7 @@
 
 <section id="crowd-o-section">
 	<h2>Crowd-o-meter</h2>
-	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </section>
 
 <section>
@@ -108,10 +105,11 @@
 <section>
 	<h2>React</h2>
 	<img src="img/react.png" style="border: 0; box-shadow: none" width="40%"/>
+	<p class="fragment">"The V in MVC"</p>
 </section>
 
 <section>
-	<h2>Best UI practices</h2>
+	<h2>Best practices</h2>
 	<ul>
 		<li class="fragment">Classic: widgets</li>
 		<li class="fragment">Web: separate logic from presentation</li>
@@ -121,12 +119,44 @@
 </section>
 
 <section>
-	<h2>Immediate mode</h2>
+	<h2>Synchronize the view</h2>
 	<ul>
-		<li>Data binding (WPF</li>
-
+		<li class="fragment">Automatic data binding<br/>
+			<small>&nbsp;&nbsp;&nbsp;&nbsp;WPF, Knockout.js</small></li>
+		<li class="fragment">Manual data binding<br/>
+			<small>&nbsp;&nbsp;&nbsp;&nbsp;Android, Win32</small></li>
+		<li class="fragment">Magical 2-directional spaghetti<br/>
+			<small>&nbsp;&nbsp;&nbsp;&nbsp;Qt, AngularJS</small></li>
+		<li class="fragment">Immediate mode<br/>
+			<small>&nbsp;&nbsp;&nbsp;&nbsp;games, React</small></li>
 	</ul>
 </section>
+
+<section>
+	<h2>Virtual DOM</h2>
+	<p>Document Object Model</p>
+</section>
+
+<section>
+	<h2>Code or it</br>didn't happen</h2>
+</section>
+
+<section id="crowd-o-demo">
+	<h2>Look:</h2>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section>
 	<h2>Heads Up</h2>
