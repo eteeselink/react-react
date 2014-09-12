@@ -13,10 +13,10 @@ var crowdo = React.renderComponent(<Crowdo/>, document.getElementById('crowd-o-c
 Reveal.addEventListener( 'slidechanged', function( event ) {
     switch(event.currentSlide.id) {
     case "crowd-o-section":
-        crowdo.show(1);
+        crowdo.show(true);
         break;
     default:
-        crowdo.show(0);
+        crowdo.show(false);
     }
 } );
 

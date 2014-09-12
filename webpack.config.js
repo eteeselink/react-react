@@ -12,8 +12,8 @@ module.exports = {
   entry: './src/www/app/app.jsx',
 
   output: {
-    filename: "app/app-bundle.js",
-    path: __dirname + "/src/www"
+    filename: "www/app/app-bundle.js",
+    path: __dirname + "/src"
   },
 
   module: {

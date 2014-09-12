@@ -2,27 +2,15 @@ require("./Counter.styl");
 
 
 var Counter = React.createClass({
-    total: 40,
+    
+    propTypes: {
+        initiallyVisible: React.PropTypes.bool,
+    },
 
     getInitialState() {
         return { 
-            amount: this.total,
             visible: !!this.props.initiallyVisible
         };
-    },
-    change(offset) {
-        this.setState({amount: this.state.amount + offset});
-    },
-    up() {
-        this.change(1);
-        return false;
-    },
-    down() {
-        this.change(-1);
-        return false;
-    },
-    show() {
-        this.setState({visible: true});
     },
 
     render() {
@@ -31,17 +19,37 @@ var Counter = React.createClass({
         }
 
         var [upStyle, downStyle] = this.computeStyles();
+        
         return <div className="Counter">
             <div className="bar up" style={upStyle} onMouseDown={this.up}/>
             <div className="bar down" style={downStyle} onMouseDown={this.down}>
-                {this.state.amount}
+                {this.props.headCount.amount()}
             </div>
             <p>{this.props.children}</p>
         </div>;
     },
 
+    change(offset) {
+        var amount = this.props.headCount.amount() + offset;
+        this.props.headCount.setAmount(amount);
+    },
+
+    up() {
+        this.change(1);
+        return false;
+    },
+
+    down() {
+        this.change(-1);
+        return false;
+    },
+
+    show() {
+        this.setState({visible: true});
+    },
+
     computeStyles() {
-        var height = (30 * this.state.amount) / this.total;
+        var height = (30 * this.props.headCount.amount()) / this.props.headCount.total();
         var offset = 30 - height;
 
         var upStyle = {
