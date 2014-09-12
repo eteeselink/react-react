@@ -4,3 +4,6 @@
 [ ] console window open met groot font
 [ ] cordova build + run testen
 [ ] ms paint open met leeg canvas
+[ ] webpack server
+[ ] webpack --watch
+[ ] alle andere programma's uit (ook tray)

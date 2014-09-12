@@ -21,4 +21,23 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
     }
 } );
 
+Reveal.addEventListener( 'fragmentshown', function( event ) {
+    // event.fragment = the fragment DOM element
+    var el = event.fragment;
+    if(el.id === "end-logo") {
+        var img = document.getElementById('end-logo-img');
+        img.style.top = 0;
+    }
+} );
+
+Reveal.addEventListener( 'fragmenthidden', function( event ) {
+    // event.fragment = the fragment DOM element
+    var el = event.fragment;
+    if(el.id === "end-logo") {
+        var img = document.getElementById('end-logo-img');
+        img.style.top = "200vh";
+    }
+} );
+
+
 React.initializeTouchEvents(true);
