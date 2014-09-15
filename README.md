@@ -3,6 +3,8 @@ react-react
 
 Slides for a talk about React, partially made with React.
 
+I could just publish them online, but where's the fun in that? Do the following simple cross-platform steps to get a feel:
+
 Setup
 -----
 Get Node.js and then run `npm install` in the root directory.
@@ -25,4 +27,3 @@ Credits
 * Content by Egbert Teeselink
 * Presentation made with [reveal.js](http://lab.hakim.se/reveal-js/#/)
 * Crowd-O-Meter made with [React](https://facebook.github.io/react)
-* Fancy
