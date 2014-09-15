@@ -20,6 +20,9 @@ var CrowdOMeter = React.createClass({
             top: this.state.visible ? "35vh" : "200vh",
         };
         var headCounts = this.state.headCounts;
+        // var total = headCounts.html.amount() + 
+        //             headCounts.js10.amount() +
+        //             headCounts.js500.amount();
 
         return <div id="crowd-o-app" style={style} className="CrowdOMeter react-app">
             <div>
@@ -27,6 +30,7 @@ var CrowdOMeter = React.createClass({
             <Counter headCount={headCounts.js10}>JavaScript<br/>(>10 LOC)</Counter>
             <Counter headCount={headCounts.js500}>JavaScript<br/>(>500 LOC)</Counter>
             </div>
+            {/*<p>Total: {total}</p>*/}
         </div>;
     }
 });

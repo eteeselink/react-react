@@ -1,9 +1,0 @@
-[ ] checken of internet goed werkt
-[ ] @imports comment weg uit simple.css
-[ ] sublime venster 2/3 browser venster "normal" 1/3
-[ ] console window open met groot font
-[ ] cordova build + run testen
-[ ] ms paint open met leeg canvas
-[ ] webpack server
-[ ] webpack --watch
-[ ] alle andere programma's uit (ook tray)

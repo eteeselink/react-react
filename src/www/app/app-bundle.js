@@ -116,6 +116,9 @@
 	            top: this.state.visible ? "35vh" : "200vh",
 	        };
 	        var headCounts = this.state.headCounts;
+	        // var total = headCounts.html.amount() + 
+	        //             headCounts.js10.amount() +
+	        //             headCounts.js500.amount();
 
 	        return React.DOM.div({id: "crowd-o-app", style: style, className: "CrowdOMeter react-app"}, 
 	            React.DOM.div(null, 
@@ -123,6 +126,7 @@
 	            Counter({headCount: headCounts.js10}, "JavaScript", React.DOM.br(null), "(>10 LOC)"), 
 	            Counter({headCount: headCounts.js500}, "JavaScript", React.DOM.br(null), "(>500 LOC)")
 	            )
+	            /*<p>Total: {total}</p>*/
 	        );
 	    }
 	});
@@ -504,9 +508,9 @@
 
 
 	    function HeadCounts(refreshView) {"use strict";
-	        this.html = new HeadCount(refreshView, 40);
-	        this.js10 = new HeadCount(refreshView, 40, this.html);
-	        this.js500 = new HeadCount(refreshView, 40, this.js10);
+	        this.html = new HeadCount(refreshView, 25);
+	        this.js10 = new HeadCount(refreshView, 25, this.html);
+	        this.js500 = new HeadCount(refreshView, 25, this.js10);
 	    }
 
 
@@ -538,11 +542,11 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 
-	var escapeTextForBrowser = __webpack_require__(38);
-	var memoizeStringOnly = __webpack_require__(39);
-	var warning = __webpack_require__(40);
+	var escapeTextForBrowser = __webpack_require__(40);
+	var memoizeStringOnly = __webpack_require__(41);
+	var warning = __webpack_require__(42);
 
 	function shouldIgnoreValue(name, value) {
 	  return value == null ||
@@ -737,9 +741,9 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Injected dependencies:
@@ -968,10 +972,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(41);
+	var PooledClass = __webpack_require__(43);
 
-	var traverseAllChildren = __webpack_require__(42);
-	var warning = __webpack_require__(40);
+	var traverseAllChildren = __webpack_require__(44);
+	var warning = __webpack_require__(42);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var threeArgumentPooler = PooledClass.threeArgumentPooler;
@@ -1129,12 +1133,12 @@
 	"use strict";
 
 	var ReactDescriptor = __webpack_require__(23);
-	var ReactOwner = __webpack_require__(45);
-	var ReactUpdates = __webpack_require__(46);
+	var ReactOwner = __webpack_require__(46);
+	var ReactUpdates = __webpack_require__(47);
 
-	var invariant = __webpack_require__(44);
-	var keyMirror = __webpack_require__(47);
-	var merge = __webpack_require__(48);
+	var invariant = __webpack_require__(38);
+	var keyMirror = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	/**
 	 * Every React component is in one of these life cycles.
@@ -1588,22 +1592,22 @@
 	var ReactDescriptorValidator = __webpack_require__(49);
 	var ReactEmptyComponent = __webpack_require__(50);
 	var ReactErrorUtils = __webpack_require__(51);
-	var ReactOwner = __webpack_require__(45);
+	var ReactOwner = __webpack_require__(46);
 	var ReactPerf = __webpack_require__(30);
 	var ReactPropTransferer = __webpack_require__(52);
 	var ReactPropTypeLocations = __webpack_require__(53);
 	var ReactPropTypeLocationNames = __webpack_require__(54);
-	var ReactUpdates = __webpack_require__(46);
+	var ReactUpdates = __webpack_require__(47);
 
 	var instantiateReactComponent = __webpack_require__(55);
-	var invariant = __webpack_require__(44);
-	var keyMirror = __webpack_require__(47);
-	var merge = __webpack_require__(48);
+	var invariant = __webpack_require__(38);
+	var keyMirror = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 	var mixInto = __webpack_require__(56);
 	var monitorCodeUse = __webpack_require__(57);
 	var mapObject = __webpack_require__(58);
 	var shouldUpdateReactComponent = __webpack_require__(59);
-	var warning = __webpack_require__(40);
+	var warning = __webpack_require__(42);
 
 	/**
 	 * Policies that describe methods in `ReactCompositeComponentInterface`.
@@ -3013,7 +3017,7 @@
 
 	"use strict";
 
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	/**
 	 * Keeps track of the current context.
@@ -3134,8 +3138,8 @@
 	var ReactContext = __webpack_require__(21);
 	var ReactCurrentOwner = __webpack_require__(22);
 
-	var merge = __webpack_require__(48);
-	var warning = __webpack_require__(40);
+	var merge = __webpack_require__(45);
+	var warning = __webpack_require__(42);
 
 	/**
 	 * Warn for mutations.
@@ -3607,7 +3611,7 @@
 	"use strict";
 
 	var CSSPropertyOperations = __webpack_require__(61);
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 	var DOMPropertyOperations = __webpack_require__(16);
 	var ReactBrowserComponentMixin = __webpack_require__(62);
 	var ReactComponent = __webpack_require__(19);
@@ -3616,10 +3620,10 @@
 	var ReactMultiChild = __webpack_require__(29);
 	var ReactPerf = __webpack_require__(30);
 
-	var escapeTextForBrowser = __webpack_require__(38);
-	var invariant = __webpack_require__(44);
+	var escapeTextForBrowser = __webpack_require__(40);
+	var invariant = __webpack_require__(38);
 	var keyOf = __webpack_require__(64);
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 	var mixInto = __webpack_require__(56);
 
 	var deleteListener = ReactBrowserEventEmitter.deleteListener;
@@ -4168,7 +4172,7 @@
 
 	var ReactRootIndex = __webpack_require__(90);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var SEPARATOR = '.';
 	var SEPARATOR_LENGTH = SEPARATOR.length;
@@ -4510,7 +4514,7 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 	var ReactBrowserEventEmitter = __webpack_require__(63);
 	var ReactCurrentOwner = __webpack_require__(22);
 	var ReactDescriptor = __webpack_require__(23);
@@ -4520,9 +4524,9 @@
 	var containsNode = __webpack_require__(91);
 	var getReactRootElementInContainer = __webpack_require__(92);
 	var instantiateReactComponent = __webpack_require__(55);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var shouldUpdateReactComponent = __webpack_require__(59);
-	var warning = __webpack_require__(40);
+	var warning = __webpack_require__(42);
 
 	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
 
@@ -6082,7 +6086,7 @@
 	  __webpack_require__(97);
 
 	var instantiateReactComponent = __webpack_require__(55);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * @param {ReactComponent} component
@@ -6177,7 +6181,7 @@
 	var ReactComponent = __webpack_require__(19);
 	var ReactDescriptor = __webpack_require__(23);
 
-	var escapeTextForBrowser = __webpack_require__(38);
+	var escapeTextForBrowser = __webpack_require__(40);
 	var mixInto = __webpack_require__(56);
 
 	/**
@@ -6285,7 +6289,7 @@
 
 	var ReactDescriptor = __webpack_require__(23);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Returns the first child in a collection of children and verifies that there
@@ -6439,6 +6443,156 @@
 /* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule EventConstants
+	 */
+
+	"use strict";
+
+	var keyMirror = __webpack_require__(48);
+
+	var PropagationPhases = keyMirror({bubbled: null, captured: null});
+
+	/**
+	 * Types of raw signals from the browser caught at the top level.
+	 */
+	var topLevelTypes = keyMirror({
+	  topBlur: null,
+	  topChange: null,
+	  topClick: null,
+	  topCompositionEnd: null,
+	  topCompositionStart: null,
+	  topCompositionUpdate: null,
+	  topContextMenu: null,
+	  topCopy: null,
+	  topCut: null,
+	  topDoubleClick: null,
+	  topDrag: null,
+	  topDragEnd: null,
+	  topDragEnter: null,
+	  topDragExit: null,
+	  topDragLeave: null,
+	  topDragOver: null,
+	  topDragStart: null,
+	  topDrop: null,
+	  topError: null,
+	  topFocus: null,
+	  topInput: null,
+	  topKeyDown: null,
+	  topKeyPress: null,
+	  topKeyUp: null,
+	  topLoad: null,
+	  topMouseDown: null,
+	  topMouseMove: null,
+	  topMouseOut: null,
+	  topMouseOver: null,
+	  topMouseUp: null,
+	  topPaste: null,
+	  topReset: null,
+	  topScroll: null,
+	  topSelectionChange: null,
+	  topSubmit: null,
+	  topTextInput: null,
+	  topTouchCancel: null,
+	  topTouchEnd: null,
+	  topTouchMove: null,
+	  topTouchStart: null,
+	  topWheel: null
+	});
+
+	var EventConstants = {
+	  topLevelTypes: topLevelTypes,
+	  PropagationPhases: PropagationPhases
+	};
+
+	module.exports = EventConstants;
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule invariant
+	 */
+
+	"use strict";
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	var invariant = function(condition, format, a, b, c, d, e, f) {
+	  if ("production" !== process.env.NODE_ENV) {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  }
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error(
+	        'Minified exception occurred; use the non-minified dev environment ' +
+	        'for the full error message and additional helpful warnings.'
+	      );
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(
+	        'Invariant Violation: ' +
+	        format.replace(/%s/g, function() { return args[argIndex++]; })
+	      );
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	};
+
+	module.exports = invariant;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014 Facebook, Inc.
 	 *
@@ -6462,7 +6616,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var DOMPropertyInjection = {
 	  /**
@@ -6741,7 +6895,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 38 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6793,7 +6947,7 @@
 
 
 /***/ },
-/* 39 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6838,7 +6992,7 @@
 
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6893,7 +7047,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 41 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6916,7 +7070,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Static poolers. Several custom versions for each potential number of
@@ -7019,7 +7173,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 42 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7045,7 +7199,7 @@
 	var ReactInstanceHandles = __webpack_require__(27);
 	var ReactTextComponent = __webpack_require__(33);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
 	var SUBSEPARATOR = ':';
@@ -7219,157 +7373,50 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule EventConstants
-	 */
-
-	"use strict";
-
-	var keyMirror = __webpack_require__(47);
-
-	var PropagationPhases = keyMirror({bubbled: null, captured: null});
-
-	/**
-	 * Types of raw signals from the browser caught at the top level.
-	 */
-	var topLevelTypes = keyMirror({
-	  topBlur: null,
-	  topChange: null,
-	  topClick: null,
-	  topCompositionEnd: null,
-	  topCompositionStart: null,
-	  topCompositionUpdate: null,
-	  topContextMenu: null,
-	  topCopy: null,
-	  topCut: null,
-	  topDoubleClick: null,
-	  topDrag: null,
-	  topDragEnd: null,
-	  topDragEnter: null,
-	  topDragExit: null,
-	  topDragLeave: null,
-	  topDragOver: null,
-	  topDragStart: null,
-	  topDrop: null,
-	  topError: null,
-	  topFocus: null,
-	  topInput: null,
-	  topKeyDown: null,
-	  topKeyPress: null,
-	  topKeyUp: null,
-	  topLoad: null,
-	  topMouseDown: null,
-	  topMouseMove: null,
-	  topMouseOut: null,
-	  topMouseOver: null,
-	  topMouseUp: null,
-	  topPaste: null,
-	  topReset: null,
-	  topScroll: null,
-	  topSelectionChange: null,
-	  topSubmit: null,
-	  topTextInput: null,
-	  topTouchCancel: null,
-	  topTouchEnd: null,
-	  topTouchMove: null,
-	  topTouchStart: null,
-	  topWheel: null
-	});
-
-	var EventConstants = {
-	  topLevelTypes: topLevelTypes,
-	  PropagationPhases: PropagationPhases
-	};
-
-	module.exports = EventConstants;
-
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule invariant
-	 */
-
-	"use strict";
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var invariant = function(condition, format, a, b, c, d, e, f) {
-	  if ("production" !== process.env.NODE_ENV) {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error(
-	        'Minified exception occurred; use the non-minified dev environment ' +
-	        'for the full error message and additional helpful warnings.'
-	      );
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(
-	        'Invariant Violation: ' +
-	        format.replace(/%s/g, function() { return args[argIndex++]; })
-	      );
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	};
-
-	module.exports = invariant;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
-
-/***/ },
 /* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule merge
+	 */
+
+	"use strict";
+
+	var mergeInto = __webpack_require__(60);
+
+	/**
+	 * Shallow merges two structures into a return value, without mutating either.
+	 *
+	 * @param {?object} one Optional object with properties to merge from.
+	 * @param {?object} two Optional object with properties to merge from.
+	 * @return {object} The shallow extension of one by two.
+	 */
+	var merge = function(one, two) {
+	  var result = {};
+	  mergeInto(result, one);
+	  mergeInto(result, two);
+	  return result;
+	};
+
+	module.exports = merge;
+
+
+/***/ },
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7392,8 +7439,8 @@
 
 	"use strict";
 
-	var emptyObject = __webpack_require__(98);
-	var invariant = __webpack_require__(44);
+	var emptyObject = __webpack_require__(100);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * ReactOwners are capable of storing references to owned components.
@@ -7535,7 +7582,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7558,15 +7605,15 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(99);
-	var PooledClass = __webpack_require__(41);
+	var CallbackQueue = __webpack_require__(98);
+	var PooledClass = __webpack_require__(43);
 	var ReactCurrentOwner = __webpack_require__(22);
 	var ReactPerf = __webpack_require__(30);
-	var Transaction = __webpack_require__(100);
+	var Transaction = __webpack_require__(99);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var mixInto = __webpack_require__(56);
-	var warning = __webpack_require__(40);
+	var warning = __webpack_require__(42);
 
 	var dirtyComponents = [];
 
@@ -7807,7 +7854,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7831,7 +7878,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Constructs an enumeration with keys equal to their value.
@@ -7870,49 +7917,6 @@
 	module.exports = keyMirror;
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
-
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule merge
-	 */
-
-	"use strict";
-
-	var mergeInto = __webpack_require__(60);
-
-	/**
-	 * Shallow merges two structures into a return value, without mutating either.
-	 *
-	 * @param {?object} one Optional object with properties to merge from.
-	 * @param {?object} two Optional object with properties to merge from.
-	 * @return {object} The shallow extension of one by two.
-	 */
-	var merge = function(one, two) {
-	  var result = {};
-	  mergeInto(result, one);
-	  mergeInto(result, two);
-	  return result;
-	};
-
-	module.exports = merge;
-
 
 /***/ },
 /* 49 */
@@ -8227,7 +8231,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var component;
 	// This registry keeps track of the React IDs of the components that rendered to
@@ -8356,9 +8360,9 @@
 	"use strict";
 
 	var emptyFunction = __webpack_require__(95);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var joinClasses = __webpack_require__(101);
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -8524,7 +8528,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(47);
+	var keyMirror = __webpack_require__(48);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -8598,7 +8602,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Validate a `componentDescriptor`. This should be exposed publicly in a follow
@@ -8706,7 +8710,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Provides open-source compatible instrumentation for monitoring certain API
@@ -8915,7 +8919,7 @@
 
 	var dangerousStyleValue = __webpack_require__(104);
 	var hyphenateStyleName = __webpack_require__(105);
-	var memoizeStringOnly = __webpack_require__(39);
+	var memoizeStringOnly = __webpack_require__(41);
 
 	var processStyleName = memoizeStringOnly(function(styleName) {
 	  return hyphenateStyleName(styleName);
@@ -9016,7 +9020,7 @@
 	var ReactEmptyComponent = __webpack_require__(50);
 	var ReactMount = __webpack_require__(28);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var ReactBrowserComponentMixin = {
 	  /**
@@ -9067,14 +9071,14 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPluginHub = __webpack_require__(106);
 	var EventPluginRegistry = __webpack_require__(107);
 	var ReactEventEmitterMixin = __webpack_require__(108);
 	var ViewportMetrics = __webpack_require__(109);
 
 	var isEventSupported = __webpack_require__(110);
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	/**
 	 * Summary of `ReactBrowserEventEmitter` event handling:
@@ -9480,7 +9484,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPropagators = __webpack_require__(111);
 	var ExecutionEnvironment = __webpack_require__(35);
 	var SyntheticInputEvent = __webpack_require__(112);
@@ -9707,11 +9711,11 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPluginHub = __webpack_require__(106);
 	var EventPropagators = __webpack_require__(111);
 	var ExecutionEnvironment = __webpack_require__(35);
-	var ReactUpdates = __webpack_require__(46);
+	var ReactUpdates = __webpack_require__(47);
 	var SyntheticEvent = __webpack_require__(113);
 
 	var isEventSupported = __webpack_require__(110);
@@ -10137,7 +10141,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPropagators = __webpack_require__(111);
 	var ExecutionEnvironment = __webpack_require__(35);
 	var ReactInputSelection = __webpack_require__(115);
@@ -10458,7 +10462,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPropagators = __webpack_require__(111);
 	var SyntheticMouseEvent = __webpack_require__(118);
 
@@ -10610,7 +10614,7 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 	var ExecutionEnvironment = __webpack_require__(35);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
@@ -10801,7 +10805,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 
 	var emptyFunction = __webpack_require__(95);
 
@@ -10878,7 +10882,7 @@
 	var ReactReconcileTransaction = __webpack_require__(120);
 
 	var getReactRootElementInContainer = __webpack_require__(92);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var setInnerHTML = __webpack_require__(121);
 
 
@@ -11001,8 +11005,8 @@
 
 	"use strict";
 
-	var ReactUpdates = __webpack_require__(46);
-	var Transaction = __webpack_require__(100);
+	var ReactUpdates = __webpack_require__(47);
+	var Transaction = __webpack_require__(99);
 
 	var emptyFunction = __webpack_require__(95);
 	var mixInto = __webpack_require__(56);
@@ -11087,7 +11091,7 @@
 	var ReactCompositeComponent = __webpack_require__(20);
 	var ReactDOM = __webpack_require__(24);
 
-	var keyMirror = __webpack_require__(47);
+	var keyMirror = __webpack_require__(48);
 
 	// Store a reference to the <button> `ReactDOMComponent`.
 	var button = ReactDOM.button;
@@ -11157,7 +11161,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var LocalEventTrapMixin = __webpack_require__(123);
 	var ReactBrowserComponentMixin = __webpack_require__(62);
 	var ReactCompositeComponent = __webpack_require__(20);
@@ -11217,7 +11221,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var LocalEventTrapMixin = __webpack_require__(123);
 	var ReactBrowserComponentMixin = __webpack_require__(62);
 	var ReactCompositeComponent = __webpack_require__(20);
@@ -11283,8 +11287,8 @@
 	var ReactDOM = __webpack_require__(24);
 	var ReactMount = __webpack_require__(28);
 
-	var invariant = __webpack_require__(44);
-	var merge = __webpack_require__(48);
+	var invariant = __webpack_require__(38);
+	var merge = __webpack_require__(45);
 
 	// Store a reference to the <input> `ReactDOMComponent`.
 	var input = ReactDOM.input;
@@ -11468,7 +11472,7 @@
 	var ReactCompositeComponent = __webpack_require__(20);
 	var ReactDOM = __webpack_require__(24);
 
-	var warning = __webpack_require__(40);
+	var warning = __webpack_require__(42);
 
 	// Store a reference to the <option> `ReactDOMComponent`.
 	var option = ReactDOM.option;
@@ -11532,7 +11536,7 @@
 	var ReactCompositeComponent = __webpack_require__(20);
 	var ReactDOM = __webpack_require__(24);
 
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	// Store a reference to the <select> `ReactDOMComponent`.
 	var select = ReactDOM.select;
@@ -11720,10 +11724,10 @@
 	var ReactCompositeComponent = __webpack_require__(20);
 	var ReactDOM = __webpack_require__(24);
 
-	var invariant = __webpack_require__(44);
-	var merge = __webpack_require__(48);
+	var invariant = __webpack_require__(38);
+	var merge = __webpack_require__(45);
 
-	var warning = __webpack_require__(40);
+	var warning = __webpack_require__(42);
 
 	// Store a reference to the <textarea> `ReactDOMComponent`.
 	var textarea = ReactDOM.textarea;
@@ -11863,15 +11867,15 @@
 
 	"use strict";
 
-	var EventListener = __webpack_require__(127);
+	var EventListener = __webpack_require__(125);
 	var ExecutionEnvironment = __webpack_require__(35);
-	var PooledClass = __webpack_require__(41);
+	var PooledClass = __webpack_require__(43);
 	var ReactInstanceHandles = __webpack_require__(27);
 	var ReactMount = __webpack_require__(28);
-	var ReactUpdates = __webpack_require__(46);
+	var ReactUpdates = __webpack_require__(47);
 
-	var getEventTarget = __webpack_require__(128);
-	var getUnboundedScrollPosition = __webpack_require__(129);
+	var getEventTarget = __webpack_require__(126);
+	var getUnboundedScrollPosition = __webpack_require__(127);
 	var mixInto = __webpack_require__(56);
 
 	/**
@@ -12057,7 +12061,7 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 	var EventPluginHub = __webpack_require__(106);
 	var ReactComponent = __webpack_require__(19);
 	var ReactCompositeComponent = __webpack_require__(20);
@@ -12066,7 +12070,7 @@
 	var ReactBrowserEventEmitter = __webpack_require__(63);
 	var ReactPerf = __webpack_require__(30);
 	var ReactRootIndex = __webpack_require__(90);
-	var ReactUpdates = __webpack_require__(46);
+	var ReactUpdates = __webpack_require__(47);
 
 	var ReactInjection = {
 	  Component: ReactComponent.injection,
@@ -12108,15 +12112,15 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPropagators = __webpack_require__(111);
 	var ReactInputSelection = __webpack_require__(115);
 	var SyntheticEvent = __webpack_require__(113);
 
-	var getActiveElement = __webpack_require__(125);
+	var getActiveElement = __webpack_require__(128);
 	var isTextInputElement = __webpack_require__(114);
 	var keyOf = __webpack_require__(64);
-	var shallowEqual = __webpack_require__(126);
+	var shallowEqual = __webpack_require__(129);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -12356,7 +12360,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPluginUtils = __webpack_require__(17);
 	var EventPropagators = __webpack_require__(111);
 	var SyntheticClipboardEvent = __webpack_require__(130);
@@ -12369,7 +12373,7 @@
 	var SyntheticUIEvent = __webpack_require__(135);
 	var SyntheticWheelEvent = __webpack_require__(136);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var keyOf = __webpack_require__(64);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -12784,7 +12788,7 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
@@ -12889,7 +12893,7 @@
 	// Defeat circular references by requiring this directly.
 	var ReactCompositeComponent = __webpack_require__(20);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Create a component that will throw an exception when unmounted.
@@ -12956,7 +12960,7 @@
 
 	"use strict";
 
-	var DOMProperty = __webpack_require__(37);
+	var DOMProperty = __webpack_require__(39);
 	var ReactDefaultPerfAnalysis = __webpack_require__(137);
 	var ReactMount = __webpack_require__(28);
 	var ReactPerf = __webpack_require__(30);
@@ -13365,7 +13369,7 @@
 
 	"use strict";
 
-	var keyMirror = __webpack_require__(47);
+	var keyMirror = __webpack_require__(48);
 
 	/**
 	 * When a component's children are updated, a series of update configuration
@@ -13409,8 +13413,8 @@
 
 	"use strict";
 
-	var traverseAllChildren = __webpack_require__(42);
-	var warning = __webpack_require__(40);
+	var traverseAllChildren = __webpack_require__(44);
+	var warning = __webpack_require__(42);
 
 	/**
 	 * @param {function} traverseContext Context passed through traversal.
@@ -13584,10 +13588,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(41);
-	var CallbackQueue = __webpack_require__(99);
+	var PooledClass = __webpack_require__(43);
+	var CallbackQueue = __webpack_require__(98);
 	var ReactPutListenerQueue = __webpack_require__(142);
-	var Transaction = __webpack_require__(100);
+	var Transaction = __webpack_require__(99);
 
 	var emptyFunction = __webpack_require__(95);
 	var mixInto = __webpack_require__(56);
@@ -13699,48 +13703,14 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule emptyObject
-	 */
-
-	"use strict";
-
-	var emptyObject = {};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  Object.freeze(emptyObject);
-	}
-
-	module.exports = emptyObject;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
-
-/***/ },
-/* 99 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
 	 * @providesModule CallbackQueue
 	 */
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(41);
+	var PooledClass = __webpack_require__(43);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var mixInto = __webpack_require__(56);
 
 	/**
@@ -13825,7 +13795,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 100 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13848,7 +13818,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * `Transaction` creates a black box that is able to wrap any method such that
@@ -14076,6 +14046,40 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule emptyObject
+	 */
+
+	"use strict";
+
+	var emptyObject = {};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  Object.freeze(emptyObject);
+	}
+
+	module.exports = emptyObject;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+
+/***/ },
 /* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -14151,8 +14155,8 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
-	var keyMirror = __webpack_require__(47);
+	var invariant = __webpack_require__(38);
+	var keyMirror = __webpack_require__(48);
 
 	/**
 	 * Maximum number of levels to traverse. Will catch circular structures.
@@ -14556,7 +14560,7 @@
 
 	var accumulate = __webpack_require__(144);
 	var forEachAccumulated = __webpack_require__(145);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var isEventSupported = __webpack_require__(110);
 	var monitorCodeUse = __webpack_require__(57);
 
@@ -14849,7 +14853,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Injectable ordering of event plugins.
@@ -15199,7 +15203,7 @@
 
 	"use strict";
 
-	var getUnboundedScrollPosition = __webpack_require__(129);
+	var getUnboundedScrollPosition = __webpack_require__(127);
 
 	var ViewportMetrics = {
 
@@ -15318,7 +15322,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(43);
+	var EventConstants = __webpack_require__(37);
 	var EventPluginHub = __webpack_require__(106);
 
 	var accumulate = __webpack_require__(144);
@@ -15527,11 +15531,11 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(41);
+	var PooledClass = __webpack_require__(43);
 
 	var emptyFunction = __webpack_require__(95);
-	var getEventTarget = __webpack_require__(128);
-	var merge = __webpack_require__(48);
+	var getEventTarget = __webpack_require__(126);
+	var merge = __webpack_require__(45);
 	var mergeInto = __webpack_require__(60);
 
 	/**
@@ -15755,7 +15759,7 @@
 
 	var containsNode = __webpack_require__(91);
 	var focusNode = __webpack_require__(147);
-	var getActiveElement = __webpack_require__(125);
+	var getActiveElement = __webpack_require__(128);
 
 	function isInDocument(node) {
 	  return containsNode(document.documentElement, node);
@@ -16106,7 +16110,7 @@
 	var ReactMount = __webpack_require__(28);
 	var ReactPerf = __webpack_require__(30);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 	var setInnerHTML = __webpack_require__(121);
 
 	/**
@@ -16294,12 +16298,12 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(99);
-	var PooledClass = __webpack_require__(41);
+	var CallbackQueue = __webpack_require__(98);
+	var PooledClass = __webpack_require__(43);
 	var ReactBrowserEventEmitter = __webpack_require__(63);
 	var ReactInputSelection = __webpack_require__(115);
 	var ReactPutListenerQueue = __webpack_require__(142);
-	var Transaction = __webpack_require__(100);
+	var Transaction = __webpack_require__(99);
 
 	var mixInto = __webpack_require__(56);
 
@@ -16614,7 +16618,7 @@
 
 	var accumulate = __webpack_require__(144);
 	var forEachAccumulated = __webpack_require__(145);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	function remove(event) {
 	  event.remove();
@@ -16672,7 +16676,7 @@
 
 	var ReactPropTypes = __webpack_require__(31);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var hasReadOnlyValue = {
 	  'button': true,
@@ -16815,101 +16819,6 @@
 /* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule getActiveElement
-	 * @typechecks
-	 */
-
-	/**
-	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
-	 * not safe to call document.activeElement if there is nothing focused.
-	 *
-	 * The activeElement will be null only if the document body is not yet defined.
-	 */
-	function getActiveElement() /*?DOMElement*/ {
-	  try {
-	    return document.activeElement || document.body;
-	  } catch (e) {
-	    return document.body;
-	  }
-	}
-
-	module.exports = getActiveElement;
-
-
-/***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 * @providesModule shallowEqual
-	 */
-
-	"use strict";
-
-	/**
-	 * Performs equality by iterating through keys on an object and returning
-	 * false when any key has values which are not strictly equal between
-	 * objA and objB. Returns true when the values of all keys are strictly equal.
-	 *
-	 * @return {boolean}
-	 */
-	function shallowEqual(objA, objB) {
-	  if (objA === objB) {
-	    return true;
-	  }
-	  var key;
-	  // Test for A's keys different from B.
-	  for (key in objA) {
-	    if (objA.hasOwnProperty(key) &&
-	        (!objB.hasOwnProperty(key) || objA[key] !== objB[key])) {
-	      return false;
-	    }
-	  }
-	  // Test for B'a keys missing from A.
-	  for (key in objB) {
-	    if (objB.hasOwnProperty(key) && !objA.hasOwnProperty(key)) {
-	      return false;
-	    }
-	  }
-	  return true;
-	}
-
-	module.exports = shallowEqual;
-
-
-/***/ },
-/* 127 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * @providesModule EventListener
 	 * @typechecks
@@ -16986,7 +16895,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ },
-/* 128 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17028,7 +16937,7 @@
 
 
 /***/ },
-/* 129 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17076,6 +16985,101 @@
 	}
 
 	module.exports = getUnboundedScrollPosition;
+
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule getActiveElement
+	 * @typechecks
+	 */
+
+	/**
+	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
+	 * not safe to call document.activeElement if there is nothing focused.
+	 *
+	 * The activeElement will be null only if the document body is not yet defined.
+	 */
+	function getActiveElement() /*?DOMElement*/ {
+	  try {
+	    return document.activeElement || document.body;
+	  } catch (e) {
+	    return document.body;
+	  }
+	}
+
+	module.exports = getActiveElement;
+
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule shallowEqual
+	 */
+
+	"use strict";
+
+	/**
+	 * Performs equality by iterating through keys on an object and returning
+	 * false when any key has values which are not strictly equal between
+	 * objA and objB. Returns true when the values of all keys are strictly equal.
+	 *
+	 * @return {boolean}
+	 */
+	function shallowEqual(objA, objB) {
+	  if (objA === objB) {
+	    return true;
+	  }
+	  var key;
+	  // Test for A's keys different from B.
+	  for (key in objA) {
+	    if (objA.hasOwnProperty(key) &&
+	        (!objB.hasOwnProperty(key) || objA[key] !== objB[key])) {
+	      return false;
+	    }
+	  }
+	  // Test for B'a keys missing from A.
+	  for (key in objB) {
+	    if (objB.hasOwnProperty(key) && !objA.hasOwnProperty(key)) {
+	      return false;
+	    }
+	  }
+	  return true;
+	}
+
+	module.exports = shallowEqual;
 
 
 /***/ },
@@ -17414,7 +17418,7 @@
 
 	var SyntheticEvent = __webpack_require__(113);
 
-	var getEventTarget = __webpack_require__(128);
+	var getEventTarget = __webpack_require__(126);
 
 	/**
 	 * @interface UIEvent
@@ -17554,7 +17558,7 @@
 	 * @providesModule ReactDefaultPerfAnalysis
 	 */
 
-	var merge = __webpack_require__(48);
+	var merge = __webpack_require__(45);
 
 	// Don't try to save users less than 1.2ms (a number I made up)
 	var DONT_CARE_THRESHOLD = 1.2;
@@ -17764,7 +17768,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(152);
+	var performance = __webpack_require__(151);
 
 	/**
 	 * Detect if we can use `window.performance.now()` and gracefully fallback to
@@ -17803,7 +17807,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(151);
+	var isNode = __webpack_require__(152);
 
 	/**
 	 * @param {*} object The object to check.
@@ -17946,7 +17950,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(41);
+	var PooledClass = __webpack_require__(43);
 	var ReactBrowserEventEmitter = __webpack_require__(63);
 
 	var mixInto = __webpack_require__(56);
@@ -18057,7 +18061,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Accumulates items that must not be null or undefined.
@@ -18482,7 +18486,7 @@
 	var ReactMultiChildUpdateTypes = __webpack_require__(93);
 
 	var getTextContentAccessor = __webpack_require__(117);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * The DOM property to use when setting text content.
@@ -18663,7 +18667,7 @@
 
 	"use strict";
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Normalization of deprecated HTML5 `key` values
@@ -18779,24 +18783,24 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule isNode
+	 * @providesModule performance
 	 * @typechecks
 	 */
 
-	/**
-	 * @param {*} object The object to check.
-	 * @return {boolean} Whether or not the object is a DOM node.
-	 */
-	function isNode(object) {
-	  return !!(object && (
-	    typeof Node === 'function' ? object instanceof Node :
-	      typeof object === 'object' &&
-	      typeof object.nodeType === 'number' &&
-	      typeof object.nodeName === 'string'
-	  ));
+	"use strict";
+
+	var ExecutionEnvironment = __webpack_require__(35);
+
+	var performance;
+
+	if (ExecutionEnvironment.canUseDOM) {
+	  performance =
+	    window.performance ||
+	    window.msPerformance ||
+	    window.webkitPerformance;
 	}
 
-	module.exports = isNode;
+	module.exports = performance || {};
 
 
 /***/ },
@@ -18818,24 +18822,24 @@
 	 * See the License for the specific language governing permissions and
 	 * limitations under the License.
 	 *
-	 * @providesModule performance
+	 * @providesModule isNode
 	 * @typechecks
 	 */
 
-	"use strict";
-
-	var ExecutionEnvironment = __webpack_require__(35);
-
-	var performance;
-
-	if (ExecutionEnvironment.canUseDOM) {
-	  performance =
-	    window.performance ||
-	    window.msPerformance ||
-	    window.webkitPerformance;
+	/**
+	 * @param {*} object The object to check.
+	 * @return {boolean} Whether or not the object is a DOM node.
+	 */
+	function isNode(object) {
+	  return !!(object && (
+	    typeof Node === 'function' ? object instanceof Node :
+	      typeof object === 'object' &&
+	      typeof object.nodeType === 'number' &&
+	      typeof object.nodeName === 'string'
+	  ));
 	}
 
-	module.exports = performance || {};
+	module.exports = isNode;
 
 
 /***/ },
@@ -18956,7 +18960,7 @@
 	var createNodesFromMarkup = __webpack_require__(155);
 	var emptyFunction = __webpack_require__(95);
 	var getMarkupWrap = __webpack_require__(156);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	var OPEN_TAG_NAME_EXP = /^(<[^ \/>]+)/;
 	var RESULT_INDEX_ATTR = 'data-danger-index';
@@ -19147,7 +19151,7 @@
 
 	var createArrayFrom = __webpack_require__(157);
 	var getMarkupWrap = __webpack_require__(156);
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Dummy container used to render all markup.
@@ -19242,7 +19246,7 @@
 
 	var ExecutionEnvironment = __webpack_require__(35);
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Dummy container used to detect which wraps are necessary.
@@ -19465,7 +19469,7 @@
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(44);
+	var invariant = __webpack_require__(38);
 
 	/**
 	 * Convert array-like objects to arrays.
