@@ -27,3 +27,4 @@ Credits
 * Content by Egbert Teeselink
 * Presentation made with [reveal.js](http://lab.hakim.se/reveal-js/#/)
 * Crowd-O-Meter made with [React](https://facebook.github.io/react)
+* Fancy reloading server is [Webpack](http://webpack.github.io), the only frontend build tool that doesn't suck.
