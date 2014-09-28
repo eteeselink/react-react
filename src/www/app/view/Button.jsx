@@ -2,12 +2,12 @@ require("./Button.styl");
 
 var Button = React.createClass({
     propTypes: {
-        target: React.PropTypes.string
+        onClick: React.PropTypes.func
     },
 
     render() {
         return (
-            <a href={this.props.target} className="Button">
+            <a onClick={this.props.onClick} className="Button">
                 <div>{this.props.children}</div>
             </a>
         );

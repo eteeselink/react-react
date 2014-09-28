@@ -15,16 +15,20 @@ var Counter = React.createClass({
         };
     },
 
+    closeDialog() {
+        this.setState({dialogVisible: false});
+    },
+
     render() {
         if(!this.state.visible) {
             return <div className="Counter" onClick={this.show}/>;
         }
 
         var [upStyle, downStyle] = this.computeStyles();
-        
+
         var dialog = null;
         if(this.state.dialogVisible) {
-            dialog = <ModalDialog okText="really." target=".">Nobody? :-(</ModalDialog>;
+            dialog = <ModalDialog okText="really." onClose={this.closeDialog}>Nobody? :-(</ModalDialog>;
         }
         
         return <div className="Counter">
