@@ -48,6 +48,25 @@
 </section>
 
 <section>
+	<h2>Preparation</h2>
+	<ul>
+		<li><strong>YOU NEED:</strong>
+			<ul>
+				<li>Computer</li>
+				<li>Node.js</li>
+				<li>GitHub account</li>
+				<li>Chrome</li>
+				<li>Text editor with JSX syntax highlighting</li>
+			</ul><br/>
+		</li>
+		<li>
+			Then clone: <br/><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/eteeselink/dwsfh
+		</li>
+	</ul>
+</section>
+
+<section>
 	<h2>Hello</h2>
 	<p>Well, hi there.</p>
 </section>
@@ -166,7 +185,9 @@
 		<pre><code data-trim contenteditable>
 &lt;div class="ModalDialog"&gt;
     &lt;p&gt;{this.props.children}&lt;/p&gt;
-    &lt;Button target={this.props.target}&gt;{this.props.okText}&lt;/Button&gt;
+    &lt;Button target={this.props.target}&gt;
+        {this.props.okText}
+    &lt;/Button&gt;
 &lt;/div&gt;
 		</code></pre>
 	</div>
@@ -180,10 +201,70 @@
 		</code></pre></div>
 </section>
 
-<section id="crowd-o-demo">
+<section id="crowd-o-demo-2">
 	<h2>Look:</h2>
 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </section>	
+
+<section>
+	<h2>Props and state</h2>
+	<ul>
+		<li class="fragment">Props: immutable</li>
+		<li class="fragment">State: mutable, <i>local</i> to component
+		</li>
+		<li class="fragment">Real Model Data™:
+			<ol>
+				<li>Keep data elsewhere</li>
+				<li>Pass pieces to component props</li>
+				<li>Refresh root component on each data change</li>
+			</ol>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Model View Nothing</h2>
+	<ul>
+		<li class="fragment">Immutable</li>
+		<li class="fragment">Big Mutable Blob</li>
+		<li class="fragment">Flux (stores and dispatchers)</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Workshop time!</h2>
+	<h4>Devnology Weather Site From Hell</h4><br/>
+	<p class="fragment">Architecture:<br/>Big Mutable Blob + single root component</p><br/>
+	<ol>
+		<li class="fragment"><i>One</i> A4: Mockup for your team's widget</li>
+		<li class="fragment">Together: combine A4s into UI mockup</li>
+		<li class="fragment">Code: render weather data into static UI</li>
+		<li class="fragment">Add local interactivity</li>
+		<li class="fragment">Add global interactivity</li>
+	</ol>
+</section>
+
+<section>
+	<h2>RULES</h2>
+	<ul>
+        <li class="fragment">JQuery, Angular, Knockout, Backbone, etc = VERBOTEN!</li>
+        <li class="fragment">If you must draw, use SVG (inside HTML, use React)</li>
+        <li class="fragment">Add dependencies = OK<br/><code>npm install somelib --save</code></li>
+        <li class="fragment">Commit, pull and push super-mega-often (straight to master!).</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Not covered</h2>
+	<ul>
+		<li>React works server-side!</li>
+		<li>FIXME</li>
+	</ul>
+	<p class="fragment" id="end-logo">
+		<br/>
+		<img  id="end-logo-img" src="img/superset_logo-03.png" style="transition: 0.5s ease-in; position: relative; top: 40vh; border: 0; box-shadow: none" width="30%"/>
+	</p>
+</section>
 
 
 <section>
@@ -191,7 +272,8 @@
 	<ul>
 		<li>Web is a mess</li>
 		<li>React makes it hurt less</li>
-		<li>Very cross-platform</li>
+		<li>JSX makes it digestible for designers</li>
+		<li>No more front-end state spaghetti!</li>
 	</ul>
 	<p class="fragment" id="end-logo">
 		<br/>

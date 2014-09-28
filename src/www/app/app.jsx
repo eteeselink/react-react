@@ -13,6 +13,7 @@ var crowdOMeter = React.renderComponent(<CrowdOMeter/>, document.getElementById(
 Reveal.addEventListener( 'slidechanged', function( event ) {
     switch(event.currentSlide.id) {
     case "crowd-o-demo":
+    case "crowd-o-demo-2":
     case "crowd-o-section":
         crowdOMeter.show(true);
         break;

@@ -1,3 +1,6 @@
+[ ] dwsfh preppen
+[ ] overal rustig doorheen gaan, nog eens op papier de plaatjes oefenen (virtual dom, architecture workshop)
+[ ] ctrl-f FIXME in index.html
 [ ] checken of internet goed werkt
 [ ] @imports comment weg uit simple.css
 [ ] sublime venster 2/3 browser venster "normal" 1/3
