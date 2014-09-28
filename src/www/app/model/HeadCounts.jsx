@@ -28,9 +28,10 @@ class HeadCount {
 
 class HeadCounts {
     constructor(refreshView) {
-        this.html = new HeadCount(refreshView, 25);
-        this.js10 = new HeadCount(refreshView, 25, this.html);
-        this.js500 = new HeadCount(refreshView, 25, this.js10);
+        var totalPeople = 25;
+        this.js10 =  new HeadCount(refreshView, totalPeople);
+        this.js500 = new HeadCount(refreshView, totalPeople, this.js10);
+        this.spwa =  new HeadCount(refreshView, totalPeople, this.js500);
     }
 }
 
