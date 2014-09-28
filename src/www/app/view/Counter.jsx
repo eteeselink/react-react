@@ -22,19 +22,15 @@ var Counter = React.createClass({
 
         var [upStyle, downStyle] = this.computeStyles();
         
-        var dialog = null;
-        if(this.state.dialogVisible) {
-            dialog = <ModalDialog okText="really." target=".">Nobody? :-(</ModalDialog>;
-        }
-        
-        return <div className="Counter">
-            <div className="bar up" style={upStyle} onMouseDown={this.up}/>
-            <div className="bar down" style={downStyle} onMouseDown={this.down}>
-                {this.props.headCount.amount()}
+        return (
+            <div className="Counter">
+                <div className="bar up" style={upStyle} onMouseDown={this.up}/>
+                <div className="bar down" style={downStyle} onMouseDown={this.down}>
+                    {this.props.headCount.amount()}
+                </div>
+                <p>{this.props.children}</p>
             </div>
-            <p>{this.props.children}</p>
-            {dialog}
-        </div>;
+        );
     },
 
     change(offset) {
