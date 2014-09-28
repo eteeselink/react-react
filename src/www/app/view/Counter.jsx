@@ -1,5 +1,6 @@
 require("./Counter.styl");
 
+var ModalDialog = require("./ModalDialog");
 
 var Counter = React.createClass({
     
@@ -9,7 +10,8 @@ var Counter = React.createClass({
 
     getInitialState() {
         return { 
-            visible: !!this.props.initiallyVisible
+            visible: !!this.props.initiallyVisible,
+            dialogVisible: false
         };
     },
 
@@ -20,17 +22,27 @@ var Counter = React.createClass({
 
         var [upStyle, downStyle] = this.computeStyles();
         
+        var dialog = null;
+        if(this.state.dialogVisible) {
+            dialog = <ModalDialog okText="really." target=".">Nobody? :-(</ModalDialog>;
+        }
+        
         return <div className="Counter">
             <div className="bar up" style={upStyle} onMouseDown={this.up}/>
             <div className="bar down" style={downStyle} onMouseDown={this.down}>
                 {this.props.headCount.amount()}
             </div>
             <p>{this.props.children}</p>
+            {dialog}
         </div>;
     },
 
     change(offset) {
         var amount = this.props.headCount.amount() + offset;
+        if(amount === 0)
+        {
+            this.setState({dialogVisible: true});
+        }
         this.props.headCount.setAmount(amount);
     },
 
