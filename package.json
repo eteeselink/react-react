@@ -20,7 +20,8 @@
     "stylus": "^0.47.3",
     "jshint": "^2.5.3",
     "jshint-loader": "^0.8.0",
-    "extract-text-webpack-plugin": "^0.2.5"
+    "extract-text-webpack-plugin": "^0.2.5",
+    "raw-loader": "^0.5.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
