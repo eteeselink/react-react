@@ -1,9 +1,9 @@
-[ ] dwsfh preppen
+[X] dwsfh preppen
+[X] ctrl-f FIXME in index.html
 [ ] overal rustig doorheen gaan, nog eens op papier de plaatjes oefenen (virtual dom, architecture workshop)
-[ ] ctrl-f FIXME in index.html
-[ ] checken of internet goed werkt
-[ ] @imports comment weg uit simple.css
-[ ] sublime venster 2/3 browser venster "normal" 1/3
-[ ] ms paint open met leeg canvas
-[ ] webpack --watch
-[ ] alle andere programma's uit (ook tray)
+[X] checken of internet goed werkt
+[X] @imports comment weg uit simple.css
+[X] sublime venster 2/3 browser venster "normal" 1/3
+[X] ms paint open met leeg canvas
+[X] webpack --watch
+[X] alle andere programma's uit (ook tray)
