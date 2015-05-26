@@ -30,6 +30,45 @@
 		 		"</style>");
 		}
 		</script>
+		<style>
+			.drawing-placeholder {
+				height: 80vh;
+			}
+			/*
+			.drawing {
+				position: relative;
+				left: 500px;
+			}
+
+			.drawing canvas {
+				position: relative;
+				border: 1px solid black;
+				height: 80vh;
+				width: 90vw;
+				left: -45vw;
+			}*/
+			.drawing {
+				z-index: 1000;
+				position: absolute;
+				height: 100vh;
+				width: 100vw;
+				left: 0px;
+				top: 0px;
+			}
+			.drawing canvas {
+				position: relative;
+				width: 95%;
+				height: 95%;
+			}
+			.drawing a {
+				display: inline-block;
+				height: 60px;
+				min-width: 60px;
+				vertical-align: middle;
+				border: 1px solid black;
+				margin: 5px;
+			}
+		</style>
 	</head>
 
 <body>
@@ -39,39 +78,35 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 <section>
-	<h1>Great web apps</h1>
-	<h3>with React</h3>
+	<h1>React</h1>
+	<h3>is how we will build UIs<br>in the next ten years</h3>
 	<p>
 		<small>
-			Egbert Teeselink<br/>
-			Durgé Seerden
+			Egbert Teeselink<br>
 		</small>
 	</p>
-	<img src="img/superset_logo-03.png" style="border: 0; box-shadow: none" width="30%"/>
-</section>
-
-<section>
-	<h2>Preparation</h2>
-	<ul>
-		<li><strong>YOU NEED:</strong>
-			<ul>
-				<li>Computer</li>
-				<li>Node.js</li>
-				<li>GitHub account</li>
-				<li>Chrome</li>
-				<li>Text editor with JSX syntax highlighting</li>
-			</ul><br/>
-		</li>
-		<li>
-			Then clone: <br/><br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/eteeselink/dwsfh
-		</li>
-	</ul>
+	<br>
+	<br>
+	<p>
+		<img src="img/superset_logo-03.png" style="vertical-align: middle; border: 0; box-shadow: none; margin-right: 2em" width="30%"/>
+		<img src="img/klets_logo_colour.png" style="vertical-align: middle; border: 0; box-shadow: none" width="30%"/>
+	</p>
 </section>
 
 <section>
 	<h2>Hello</h2>
 	<p>Well, hi there.</p>
+</section>
+
+<section>
+	<h2>Hello</h2>
+	<p>Well, hi there.</p>
+</section>
+
+<section id="good-old-days">
+	<h2>The good old days</h2>
+	<div class="drawing-placeholder">
+	</div>
 </section>
 
 <section id="crowd-o-section">
@@ -297,10 +332,13 @@
 </div>
 
 <div id="crowd-o-container"></div>
+<div class="drawing" id="drawing-good-old-days"></div>
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.min.js"></script>
 <script src="app/app-bundle.js"></script>
+<script src="lib/js/jquery-1.8.1.js"></script>
+<script src="lib/js/sketch.js"></script>
 
 <script>
 
@@ -312,6 +350,8 @@ progress: true,
 history: true,
 center: true,
 margin: 0,
+height: 1000,
+width: 1000,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
@@ -330,6 +370,39 @@ dependencies: [
 	{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 ]
 });
+
+$(".drawing").each(function() {
+	var el = $(this);
+	var id = Math.random().toString().substr(8);
+	var tools = $("<div/>");
+    // $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
+  		// tools.append("<a href='#"+id+"' data-color='" + this + "' style='background: " + this + ";'></a> ");
+    // });
+    // $.each([3, 5, 10, 15], function() {
+  		// tools.append("<a href='#"+id+"' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
+    // });
+    tools.append("<a href='#"+id+"' data-color='#000' data-size='3'  style='background: #000;'></a> ");
+    tools.append("<a href='#"+id+"' data-color='#fff' data-size='25' style='background: #fff;'></a> ");
+    var undo = $("<a href='#"+id+"' class='undo' style='background: #fff; padding: 6px 0 0 12px; border: none'></a>");
+    undo.html('<svg height="40px" version="1.1" viewBox="0 0 16 20" width="32px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#888888" id="Core" transform="translate(-424.000000, -463.000000)"><g id="undo" transform="translate(424.000000, 464.000000)"><path d="M8,3 L8,-0.5 L3,4.5 L8,9.5 L8,5 C11.3,5 14,7.7 14,11 C14,14.3 11.3,17 8,17 C4.7,17 2,14.3 2,11 L0,11 C0,15.4 3.6,19 8,19 C12.4,19 16,15.4 16,11 C16,6.6 12.4,3 8,3 L8,3 Z" id="Shape"/></g></g></g></svg>');
+    tools.append(undo);
+
+    el.append(tools);
+
+
+
+    var canvas = $("<canvas id="+id+" height='800'/>");
+	el.append(canvas);
+    canvas.attr("height", canvas.height());
+    canvas.attr("width", canvas.width());
+
+    undo.on('click', function() {
+    	var sketch = canvas.data('sketch');
+    	sketch.actions.splice(-1);
+    	sketch.redraw();
+	});
+});
+$(".drawing canvas").each(function() { $(this).sketch(); });
 
 </script>
 

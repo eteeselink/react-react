@@ -1038,7 +1038,7 @@ var Reveal = (function(){
 			// Dimensions of the content
 			var slideWidth = config.width,
 				slideHeight = config.height,
-				slidePadding = 20; // TODO Dig this out of DOM
+				slidePadding = 5; // TODO Dig this out of DOM
 
 			// Layout the contents of the slides
 			layoutSlideContents( config.width, config.height, slidePadding );

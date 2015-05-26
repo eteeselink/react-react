@@ -23,9 +23,9 @@ var CrowdOMeter = React.createClass({
 
         return <div id="crowd-o-app" style={style} className="CrowdOMeter react-app">
             <div>
-            <Counter headCount={headCounts.js10} initiallyVisible={true}>JavaScript<br/>(>10 LOC)</Counter>
-            <Counter headCount={headCounts.js500}>JavaScript<br/>(>500 LOC)</Counter>
-            <Counter headCount={headCounts.spwa}>Single Page<br/>Web App<br/>(>5000 LOC)</Counter>
+            <Counter headCount={headCounts.js10} initiallyVisible={true}>JavaScript<br/>(&gt;10 LOC)</Counter>
+            <Counter headCount={headCounts.js500}>JavaScript<br/>(&gt;500 LOC)</Counter>
+            <Counter headCount={headCounts.spwa}>Single Page<br/>Web App<br/>(&gt;5000 LOC)</Counter>
             </div>
         </div>;
     }

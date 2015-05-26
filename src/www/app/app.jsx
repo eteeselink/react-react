@@ -8,7 +8,8 @@ require("./typography.styl");
 require("raw!../index.html");
 
 var CrowdOMeter = require("./view/CrowdOMeter");
-var crowdOMeter = React.renderComponent(<CrowdOMeter/>, document.getElementById('crowd-o-container'));
+var crowdOMeter = React.render(<CrowdOMeter/>, document.getElementById('crowd-o-container'));
+
 
 Reveal.addEventListener( 'slidechanged', function( event ) {
     switch(event.currentSlide.id) {
@@ -20,6 +21,12 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
     default:
         crowdOMeter.show(false);
     }
+
+    var $ = window.$;
+    $(".drawing").hide();
+    $("#drawing-" + event.currentSlide.id).fadeIn();
+    $("#drawing-" + event.currentSlide.id + " canvas").trigger('mousedown');
+    $("#drawing-" + event.currentSlide.id + " canvas").trigger('mouseup');
 } );
 
 Reveal.addEventListener( 'fragmentshown', function( event ) {

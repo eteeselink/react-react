@@ -1,6 +1,6 @@
 require("./Counter.styl");
 
-var ModalDialog = require("./ModalDialog");
+//var ModalDialog = require("./ModalDialog");
 
 var Counter = React.createClass({
     
